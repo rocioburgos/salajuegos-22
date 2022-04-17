@@ -1,0 +1,42 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->    
+<div class="padding-all">
+    <div class="header">
+        <h1>Ingreso</h1>
+    </div>
+    <div class="design-w3l">
+
+        
+    <div *ngIf='show_error'class="card text-white bg-danger" >
+        <div class="card-header">Error</div>
+        <div class="card-body"> 
+          <p class="card-text">
+            {{ descripcion_error }}
+          </p>
+        </div>
+      </div>
+
+        <div class="mail-form-agile">
+            <form action="#" method="post" (ngSubmit)='loginUser()'>
+                <input type="email" name="email" placeholder="Email" required="" [(ngModel)]='email' />
+                <input type="password"  name="clave" class="padding" placeholder="Contraseña" required="" [(ngModel)]='clave' />
+                <input type="submit" value="Aceptar">
+                <input type="button" value="Autocompletar" (click)='autocompletar()'> 
+                
+            </form>
+        
+        </div>
+      <div class="clear"> </div>
+     
+
+<br>
+
+    </div>
+    <!--div class="footer">
+    <p>© 2017 Gaming Login form. All Rights Reserved | Design by  <a href="https://w3layouts.com/" >  w3layouts </a></p>
+    </div-->
+</div>

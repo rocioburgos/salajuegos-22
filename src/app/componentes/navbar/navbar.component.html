@@ -1,0 +1,65 @@
+<header   class=" header px-3 py-2 bg-dark text-white" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a routerLink='' class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+            <!--img src="../assets/favicon.png" width="50px"--> 
+          <h2>  {{titulo}} </h2>
+          </a>
+          <!-- VISIBLE PARA TODOS-->
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+              <li>
+                <a href='home' class="nav-link text-white">
+                  Inicio
+                </a>
+              </li>
+              <li>
+                <a href='juegos' class="nav-link text-white">
+                  Juegos
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/listado']" class="nav-link text-white">
+                  Listados
+                </a>
+              </li>  
+              <li>
+                <a  [routerLink]="['/encuesta/']" class="nav-link text-white">
+                  Encuesta
+                </a>
+              </li> 
+              <li>
+                <a href='quiensoy' class="nav-link text-white">
+                Quien soy
+                </a>
+              </li>   
+  
+            <!-- SI NO ESTA logueado -->
+       
+              <li *ngIf='!estado_activo || estado_activo==null' class="nav-link text-white">
+                <a href="login">
+                Login
+                </a>
+              </li>
+              <li *ngIf='!estado_activo || estado_activo==null' class="nav-link text-white">
+                <a href="registro">
+                Registro
+                </a>
+              </li> 
+              <!--SI ESTA LOGEADO-->
+            <li *ngIf='estado_activo' class="nav-link text-white">{{nombre_usuario}}</li>
+            <li *ngIf='estado_activo' class="nav-link text-white">
+              <button class="btn btn-danger" (click)='cerrarSesion()'>Cerrar sesion</button>
+            </li> 
+
+            <li *ngIf='estado_activo'>
+              <a href="chat" class="btn-flotante">Chat</a>
+            </li>
+
+            </ul>
+  
+   
+        </div>
+      </div>
+    </nav>
+    </header>

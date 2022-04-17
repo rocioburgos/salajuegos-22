@@ -1,0 +1,35 @@
+<!---- 
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->  
+<div class="padding-all">
+    <div class="header">
+        <h1>Registro</h1>
+    </div>
+
+    <div *ngIf='show_error'class="card text-white bg-danger" >
+        <div class="card-header">Error</div>
+        <div class="card-body"> 
+          <p class="card-text">
+            {{ descripcion_error }}
+          </p>
+        </div>
+      </div>
+    <div class="design-w3l">
+        <div class="mail-form-agile">
+            <form   method="post" (ngSubmit)="onRegistro()">
+
+                <input type="text"  class="padding" name="nombre" placeholder="Nombre"    [(ngModel)]='nombre'  />
+                <input type="email" class="padding" name="email" placeholder="Email"    [(ngModel)]='email' />
+                <input type="password"  name="clave" class="padding" placeholder="Contraseña"   [(ngModel)]='clave' />
+                <input type="submit" value="Registrarse">
+            </form>
+        </div> 
+    </div>
+
+    <div class="footer">
+    <p>© 2017 Gaming Login form. All Rights Reserved | Design by  <a href="https://w3layouts.com/" >  w3layouts </a></p>
+    </div >
+</div>
