@@ -1,0 +1,39 @@
+<div class="container" style="background:slateblue;">
+    <div class="row" style="text-align:center">
+        <div class="column" style="min-width: 50%; text-align: left; max-height: 80px">
+            <h2>Aciertos: {{cuenta}}</h2>
+            <h4>Vidas restantes: {{vidas}}</h4>
+            <img *ngFor="let in of counter(vidas) ;let i = index" src="./../../../../assets/juegos/corazon.png"
+                width="20px">
+
+            <br>
+        </div>
+        <div class="column">
+            <label *ngIf='mostrarFin'>Termino el juego, su puntaje es : {{cuenta}}</label>
+            <br>
+            <button class="btn btn-primary" role="button" style="margin-right: 5px" *ngIf='mostrarFin'
+                (click)='reload()'>volver a intentarlo</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <h3> {{mensaje}} </h3>
+    </div>
+    <div class="row">
+        <div class="column ">
+            <img width="100px" src={{cartaPrincipal.pathImg}}>
+        </div>
+        <div class="column">
+            <label>Esta carta es: </label>
+            <button (click)='play("mayor")' class="btn-warning">Mayor</button>
+
+            <button (click)='play("igual")' class="btn-warning">Igual</button>
+
+            <button (click)='play("menor")' class="btn-warning">Menor</button>
+            <label>que la siguiente</label>
+            <div class="column ">
+                <img width="100px" src="./../../../../assets/juegos/mayorMenor/cartas/prox.png">
+            </div>
+        </div>
+    </div>
+</div>

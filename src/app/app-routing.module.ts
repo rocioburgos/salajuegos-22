@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './componentes/home/home.component';
-import { LoginComponent } from './componentes/login/login.component';
-import { NavbarComponent } from './componentes/navbar/navbar.component';
-import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
-import { RegistroComponent } from './componentes/registro/registro.component';
+import { HomeComponent } from './componentes/home/home.component'; 
+import { LogueadoGuard } from './guards/logueado.guard';
 
 const routes: Routes = [
  
   {
     path:'login',
-    component: LoginComponent
+    loadChildren: () => import('./modulos/login/login.module').then(m => m.LoginModule) 
   },
   {
     path:'registro',
-    component: RegistroComponent
+    loadChildren: () => import('./modulos/registro/registro.module').then(m => m.RegistroModule) 
   },
   {
     path:'home',
@@ -22,7 +19,16 @@ const routes: Routes = [
   }, 
   {
     path:'quiensoy',
-    component:QuienSoyComponent
+    loadChildren: () => import('./modulos/quiensoy/quiensoy.module').then(m => m.QuiensoyModule) 
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./modulos/chat/chat.module').then(m => m.ChatModule) 
+    
+  },
+  {
+    path:'juegos',
+    loadChildren: ()=>import('./modulos/juegos/juegos.module').then(m=>m.JuegosModule)
   },
   {
     path: '',
@@ -37,7 +43,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes ) ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

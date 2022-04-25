@@ -1,0 +1,27 @@
+.column{
+    float: left;
+    width: 40%;
+    padding: 50px; 
+  }  
+  
+    .tecla{ 
+      border: 1px solid #CCC;
+      font-family: Arial,Helvetica,sans-serif;
+      background-color: #F7F7F7;
+      color: #333;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 2px #FFF inset;
+      border-radius: 3px;
+      display: inline-block; 
+      text-shadow: 0px 1px 0px #FFF;
+      line-height: 1.4;
+      white-space: nowrap;
+      font-size: 12px;
+      cursor: pointer;
+      } 
+      .padre{
+        border: 1px;
+        display: inline-block;
+        width: 28px;
+        margin: 3px;
+        text-align: left;
+     }

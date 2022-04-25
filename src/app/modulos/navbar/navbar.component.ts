@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  
+
   titulo = 'Sala de Juegos';
   estado_activo?:boolean;
   nombre_usuario?:string; 
@@ -43,4 +43,5 @@ export class NavbarComponent implements OnInit {
         this.estado_activo =true;
       }
   }
+
 }

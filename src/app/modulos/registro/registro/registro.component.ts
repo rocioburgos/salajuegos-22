@@ -11,6 +11,7 @@ import { JugadoresService } from 'src/app/servicios/jugadores.service';
 })
 export class RegistroComponent implements OnInit {
 
+
   clave:string;
   nombre:string;
   email:string;
@@ -55,6 +56,5 @@ export class RegistroComponent implements OnInit {
     }
   
   } 
-
 
 }

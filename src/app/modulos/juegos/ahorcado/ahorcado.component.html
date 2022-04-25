@@ -1,0 +1,34 @@
+<div class="container" style="background:slateblue;">
+    <div class="row" style="margin-top: 20px">
+        <div class="column" style="text-align:center;">
+            <h1>La palabra secreta es {{ mascara }}</h1>
+            <img width="250" src={{vidaImagen}}>
+        </div>
+        <div *ngIf="!juegoOff">
+            <div class="column">
+                <label style="margin-right: 10px; margin-bottom: 20px; background:slateblue;">Seleccione una
+                    letra</label>
+                <br>
+                <div *ngFor="let obj of abecedario" class="padre" style="background:slateblue;">
+                    <button class="tecla" (click)="letraElegida(obj)"> {{obj}} </button>
+                </div>
+                <h4>letras utilizadas: {{letrasUsadas}}</h4>
+                <br>
+                <h4>Vidas restantes: {{vidas}}</h4>
+                <img *ngFor="let in of counter(vidas) ;let i = index" src="./../../../../assets/juegos/corazon.png"
+                    width="20px">
+                <br>
+            </div>
+        </div> 
+    </div>
+        <div class="row" *ngIf="juegoOff">
+            <h3> {{mensaje}} </h3>
+            <h4>La palabra secreta era: {{palabraoculta}} </h4>
+            <img *ngFor="let in of counter(vidas) ;let i = index" src="./../../../../assets/juegos/corazon.png"
+            width="20px">
+            <button (click)="reload()" class="btn btn-primary" role="button" style="margin-right: 5px">volver a
+                intentarlo</button>
+       
+
+    </div>
+</div>

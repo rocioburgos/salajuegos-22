@@ -1,14 +1,5 @@
 {
-  "targets": {
-    "salajuegos-a1a0a": {
-      "hosting": {
-        "TPSalaJuegos": [
-          "salajuegos-a1a0a"
-        ]
-      }
-    }
-  },
   "projects": {
-    "default": "salajuegos-a1a0a"
+    "default": "sala22"
   }
 }

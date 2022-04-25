@@ -1,0 +1,36 @@
+<div class='container'>
+  <div *ngFor='let msj of mensajes'>
+    <!--RECIBIDOS--> 
+      <div *ngIf="msj.remitente != usuario_actual.email; else other ">
+        <div class="bubbleWrapper">
+          <div class="inlineContainer">
+            <img class="inlineIcon"
+              src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+            <div class="otherBubble other">
+              <span class="name">{{msj.remitente}} </span>
+              {{msj.mensaje}}
+            </div>
+          </div><span class="other">{{msj.diaHora}}</span>
+        </div>
+      </div>
+      <!--EVIADOS POR USUARIO ACTUAL-->
+      <ng-template #other>
+        <div class="bubbleWrapper">
+          <div class="inlineContainer own">
+            <img class="inlineIcon"
+              src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+            <div class="ownBubble own">
+              {{msj.mensaje}}
+            </div>
+          </div><span class="own">{{msj.diaHora}}</span>
+        </div>
+      </ng-template> 
+  </div>
+
+  <div class="type_msg">
+    <div class="input_msg_write">
+      <input [(ngModel)]='mensajeEnviar' type="text" class="write_msg" placeholder="Escribir un mensaje..." />
+      <button class="msg_send_btn" type="button" (click)='mandarMensaje( )'><img
+          src="./../../../assets/enviar.png"></button>
+    </div>
+  </div>
