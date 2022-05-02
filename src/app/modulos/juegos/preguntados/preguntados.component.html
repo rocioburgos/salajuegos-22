@@ -1,0 +1,18 @@
+<div id="content">
+    Vidas:<span class='bagge' id='numRespuestasCorrectas'> {{vidas}} |</span>
+    Respuestas correctas: <span class='bagge' id='numRespuestasCorrectas'> {{aciertos}} </span>
+    <div *ngIf='perdio'>
+        <h4> {{mensaje}} </h4>
+        <button (click)="reload()" class="btn btn-primary" role="button" style="margin-right: 5px">volver a
+            intentarlo</button>
+    </div>
+    <div id="tablero">
+        <h1 id='pregunta-titulo'>¿Cual fue la audiencia de esta pelicula?</h1>
+        <img src="{{imgPath}} " width="200px">
+        <ol id="pregunta-respuestas" *ngFor='let item of opciones_incorrectas'>
+            <li>
+                <input type="button" (click)='play( item )' value="{{item}}">
+            </li>
+        </ol>
+    </div>
+</div>

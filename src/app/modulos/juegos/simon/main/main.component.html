@@ -1,0 +1,12 @@
+<div class="container" style="background:slateblue;">   
+    Nivel: <span class='bagge' id='numRespuestasCorrectas'  >  {{ServService.level}} </span>
+    <h3  > {{ServService.mensaje}} </h3>
+    <div *ngIf="!ServService.showLose" id="circle"  >
+        <button type="button" id="start" (click)="ServService.runGame()" (click)="ServService.buttonClick.play()"
+            class="btn btn4 round4" *ngIf="ServService.hideStartButton">Start</button>
+        <div  *ngFor="let color of colorBlock; let i = index" [@fade]='this.colorBlock[i].animate' 
+            class="color {{color.color}}"
+            (click)="ServService.clickMulti&&ServService.playingAuth&&ServService.addPlayerChoise(i)"> 
+        </div>
+    </div>
+</div>

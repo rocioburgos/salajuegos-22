@@ -10,6 +10,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';   
 import { NavbarComponent } from './modulos/navbar/navbar.component'; 
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { NavbarComponent } from './modulos/navbar/navbar.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule ,
+    HttpClientModule
  
   ],
   providers: [],
