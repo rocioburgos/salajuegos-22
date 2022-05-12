@@ -43,6 +43,17 @@ export class AhorcadoComponent implements OnInit {
     }
   }
 
+  guardarResultados(){
+    //guardar en firebase
+    let now = new Date();
+    let fecha = now.getDate() + "-" + now.getMonth() + "-" + now.getFullYear(); 
+    let email = this.authSrv.getCurrentUserLS().email;
+    let letrasUsadas_count=  (this.letrasUsadas.length);
+    let resultados = { 'email': email, 'fecha':fecha, 'juego': 'ahorcado', 'puntaje': this.vidas };
+    this.jugadoresSrv.registrarResultados(resultados).then((res) => { 
+    })
+ }
+
 
   counter(i: number) {
     return new Array(i);
@@ -152,17 +163,19 @@ export class AhorcadoComponent implements OnInit {
       this.mascara = this.palabraoculta;
       //guardar en firebase
       let resultados = { 'email': email, 'fecha': fecha, 'juego': 'Ahorcado', 'puntaje': this.vidas }
-      this.jugadoresSrv.registrarResultados(resultados).then((res) => {
+
+      this.guardarResultados();
+      
 
         this.mensaje = "HAS PERDIDO. EL JUEGO HA TERMINADO";
-      })
+      
     } else {
 
       let resultados = { 'email': email, 'fecha': fecha, 'juego': 'Ahorcado', 'puntaje': this.vidas }
-      this.jugadoresSrv.registrarResultados(resultados).then((res) => {
-
+      this.guardarResultados();
+       
         this.mensaje = "¡FELICIDADES! ¡HAS GANADO!"
-      })
+ 
       clearInterval(this.interval);
     }
   }

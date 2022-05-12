@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import { HomeComponent } from './componentes/home/home.component'; 
 import { LogueadoGuard } from './guards/logueado.guard';
+import { ListadoResultadoComponent } from './modulos/listado-resultado/listado-resultado.component';
 
 const routes: Routes = [
  
@@ -29,6 +31,14 @@ const routes: Routes = [
   {
     path:'juegos',
     loadChildren: ()=>import('./modulos/juegos/juegos.module').then(m=>m.JuegosModule)
+  },
+  {
+    path: 'listado',
+   component: ListadoResultadoComponent
+  }, 
+  {
+    path: 'encuesta',
+    component: EncuestaComponent
   },
   {
     path: '',

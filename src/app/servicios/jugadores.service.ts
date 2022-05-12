@@ -71,7 +71,7 @@ export class JugadoresService {
 
   traerResultados(){  
     //ordenarlos por fecha
-    this.resultadosCollection =  this.afs.collection('resultados' ,  ref => ref .orderBy('fecha',  "desc"  ));  
+    this.resultadosCollection =  this.afs.collection('resultados' ,  ref => ref .orderBy('fecha',  "asc"  ));  
     return this.resultadosCollection.valueChanges(); 
  
   } 

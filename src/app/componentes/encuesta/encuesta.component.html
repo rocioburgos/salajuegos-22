@@ -1,0 +1,103 @@
+<div class='container'>
+    <form [formGroup]='formulario' (ngSubmit)='aceptar()'>
+  
+  
+      <div class="form-group">
+        <label>Nombre</label>
+        <input formControlName='nombre' type="text" class="form-control" id="exampleInputNombre1">
+        <small class="form-text text-muted"
+          *ngIf="formulario.get('nombre')?.hasError('required') && formulario.get('nombre')?.touched">El Nombre es
+          requerido.</small>
+      </div>
+  
+  
+      <div class="form-group">
+        <label>Apellido</label>
+        <input formControlName='apellido' type="text" class="form-control" id="exampleInputApellido1">
+        <small id="emailHelp1" class="form-text text-muted"
+          *ngIf="formulario.get('apellido')?.hasError('required') && formulario.get('apellido')?.touched">El apellido es
+          requerido.</small>
+      </div>
+  
+      <div class="form-group">
+        <label>Edad</label>
+        <input formControlName='edad' type="number" class="form-control">
+        <small class="form-text text-muted"
+          *ngIf="formulario.get('edad')?.hasError('required') && formulario.get('edad')?.touched">La edad es
+          requerida.</small>
+        <small id="edadHelp2" class="form-text text-muted"
+          *ngIf="formulario.get('edad')?.hasError('min') && formulario.get('edad')?.touched">La edad minima es 18.</small>
+  
+        <small id="edadHelp2" class="form-text text-muted"
+          *ngIf="formulario.get('edad')?.hasError('max') && formulario.get('edad')?.touched">La edad maxima es 99.</small>
+  
+      </div>
+  
+  
+      <div class="form-group">
+        <label>Numero de telefono</label>
+        <input formControlName='tel' type="text" class="form-control">
+        <small class="form-text text-muted"
+          *ngIf="formulario.get('tel')?.hasError('required') && formulario.get('tel')?.touched">El telefono es
+          requerido.</small>
+        <small class="form-text text-muted"
+          *ngIf="formulario.get('tel')?.hasError('pattern') && formulario.get('tel')?.touched">El telefono solo
+          es numerico.</small>
+        <small class="form-text text-muted"
+          *ngIf="formulario.get('tel')?.hasError('minlength') && formulario.get('tel')?.touched">Revise el telefono debe
+          tener 10 numeros.</small>
+        <small class="form-text text-muted"
+          *ngIf="formulario.get('tel')?.hasError('maxlength') && formulario.get('tel')?.touched">Revise el telefono solo
+          puede tener 10 numeros.</small>
+      </div>
+      <br>
+      <br>    
+      <div class="row">
+        <div class="col-4">
+          <h3 > ¿Que cambios haria en los juegos?</h3>
+          <textarea formControlName='sugerencias' class="form-control" cols="30" rows="5"></textarea>
+          <small class="form-text text-muted"
+          *ngIf="formulario.get('sugerencias')?.hasError('minlength') && formulario.get('sugerencias')?.touched">La sugerencia debe tener 10 caracteres minimo.</small>
+          <small class="form-text text-muted"
+          *ngIf="formulario.get('sugerencias')?.hasError('required') && formulario.get('sugerencias')?.touched">Su respuesta es requerida.</small>
+        </div>
+      
+        <div class="col-4"> 
+          <h3> ¿Volveria a jugar?</h3>
+          <select class="form-select" id="playAgain" formControlName="playAgain">
+            <option value="">Seleccione uno</option>
+            <option value="si">Si </option>
+            <option value="no">No</option>
+            <option value="duda">No lo se</option>
+          </select>
+          <small class="invalid"
+          *ngIf="formulario.get('playAgain')?.hasError('required') && formulario.get('playAgain')?.touched">
+        La respuesta es requerida.
+        </small>
+        </div>
+        <div class="col-4">
+          <!--h3 > ¿Que le llamo la atencion?</h3>
+          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+          <label for="vehicle1">Graficos</label><br>
+          <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+          <label for="vehicle2">Dificultad</label><br>
+          <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+          <label for="vehicle3">Jugabilidad</label-->  
+        
+          <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
+          <label for="recordar" class="form-check-label" for="terminos">
+            Aceptar términos y condiciones
+          </label> 
+        </div> 
+      </div> 
+      <div>
+        <h3> {{mensaje}} </h3>
+      </div>
+  <button type="submit" class="btn btn-success" [disabled]='formulario.invalid || !formulario.controls.terminos.value'>ENVIAR</button>
+  </form>
+  
+  
+  
+  
+  
+  </div>
